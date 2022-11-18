@@ -35,7 +35,9 @@ io.on("connection",socket =>{
     })
 })
 
-server.listen(4006);
+
+const port = process.env.PORT
+server.listen(port);
 
 // app.listen(4000,(err)=>{
 //     if (err) {
