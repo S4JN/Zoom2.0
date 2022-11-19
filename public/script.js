@@ -38,21 +38,21 @@ navigator.mediaDevices.getUserMedia({
         connecToNewUser(userId, stream);
     })
 
-    let text = $("input")
+//     let text = $("input")
 
-    $("html").keydown((e) => {
-        if (e.which == 13 && text.val().length !== 0) {
+//     $("html").keydown((e) => {
+//         if (e.which == 13 && text.val().length !== 0) {
 
-            socket.emit("message", text.val());
-            text.val("")
-        }
-    });
+//             socket.emit("message", text.val());
+//             text.val("")
+//         }
+//     });
 
-    socket.on("createMessage", message => {
-        console.log("comning ffrom server", message);
-        $(".messages").append(`<li class="message"><b>user</b><br/>${message}</li>`);
-        scrollToBottom()
-    })
+//     socket.on("createMessage", message => {
+//         console.log("comning ffrom server", message);
+//         $(".messages").append(`<li class="message"><b>user</b><br/>${message}</li>`);
+//         scrollToBottom()
+//     })
 })
 
 // this generates automatic id's
@@ -84,6 +84,24 @@ const addVideoStream = (video, stream) => {
     })
     videoGrid.append(video);
 }
+
+//adding it
+let text = $("input")
+
+    $("html").keydown((e) => {
+        if (e.which == 13 && text.val().length !== 0) {
+
+            socket.emit("message", text.val());
+            text.val("")
+        }
+    });
+
+    socket.on("createMessage", message => {
+        console.log("comning ffrom server", message);
+        $(".messages").append(`<li class="message"><b>user</b><br/>${message}</li>`);
+        scrollToBottom()
+    })
+
 
 const scrollToBottom = () => {
     let d = $(".main__chat__window");
